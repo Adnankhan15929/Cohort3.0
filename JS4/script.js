@@ -172,24 +172,24 @@
 // console.log(book1);
 // console.log(book2);
 
-class MakeStudents{
-    constructor(bookName,authorName,isVerified){
-        this.bookName = bookName,
-    this.authorName = authorName,
-    this.pages = 560,
-    this.isVerified = isVerified;
-    }
-    showBook = function (){
-        if(this.isVerified){
-            console.log(`${this.bookName,this.authorName,this.pages}`);
+// class MakeStudents{
+//     constructor(bookName,authorName,isVerified){
+//         this.bookName = bookName,
+//     this.authorName = authorName,
+//     this.pages = 560,
+//     this.isVerified = isVerified;
+//     }
+//     showBook = function (){
+//         if(this.isVerified){
+//             console.log(`${this.bookName,this.authorName,this.pages}`);
             
-        }
-        else{
-            console.log('book not verified');
+//         }
+//         else{
+//             console.log('book not verified');
             
-        }
-    }
-}
+//         }
+//     }
+// }
 
-let s1 = new MakeStudents("atomic habits","james clear",true)
-console.log(s1);
+// let s1 = new MakeStudents("atomic habits","james clear",true)
+// console.log(s1);
