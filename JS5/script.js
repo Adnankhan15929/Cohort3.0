@@ -71,15 +71,33 @@
 // })
 
 
-let response = fetch('https://fakestoreapi.com/products/')
-response
-    .then(function (data) {
-        console.log('Data aa gya ✅');
-        return data.json()
-    })
-    .then(function (mydata) {
-        console.log(mydata);
-    })
-    .catch(function () {
-        console.error('Data nhi aaya ❌');
-    })
+// let response = fetch('https://fakestoreapi.com/products/')
+// response
+//     .then(function (data) {
+//         console.log('Data aa gya ✅');
+//         return data.json()
+//     })
+//     .then(function (mydata) {
+//         console.log(mydata);
+//     })
+//     .catch(function () {
+//         console.error('Data nhi aaya ❌');
+//     })
+
+
+async function dataLao() {
+    try {
+        let response = await fetch('https://cakestoreapi.com/products/')
+
+        let data = await response.json()
+
+        data.forEach(function (elem) {
+            console.log(elem.title);
+        })
+    } catch (error) {
+        console.error('URL galat hai bhai');
+    }
+}
+
+
+dataLao()

@@ -194,3 +194,12 @@
 // let s1 = new MakeStudents("atomic habits","james clear",true)
 // console.log(s1);
 
+function introduce(city, country) {
+  console.log(`Main ${this.name} hoon, ${city}, ${country} se`);
+}
+const person = { name: "Rahul" };
+
+introduce.call(person,"Indore", "India");
+introduce.apply(person, ["Indore", "India"]);
+const boundFn = introduce.bind(person);
+boundFn("Indore", "India");

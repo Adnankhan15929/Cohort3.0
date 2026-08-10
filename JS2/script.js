@@ -976,18 +976,156 @@
 // console.log(obj.div(15,50));
 
 
+//SCENARIO-BASED QUESTIONS
+
+// let arr = [
+//     user1={
+//         name:'adnan khan',
+//         active:true
+//     },
+//     user2={
+//         name:'elon modi',
+//         active:false
+//     },
+//     user3={
+//         name:'alex harmozi',
+//         active:true
+//     },
+// ]
+// function check(user){
+//     if(user.active===true)
+//         return user;
+// }
+// for(let user in arr){
+//     if(check(arr[user])){
+//         console.log(check(arr[user]));
+//     }
+//     else continue;
+// }
 
 
 
+// let userorder= [
+//     order1={
+//         revenue:1000,
+//         name:'chips'
+//     },
+//     order2={
+//         revenue:4000,
+//         name:'cola'
+//     },
+//     order3={
+//         name:'biscuit',
+//         revenue:5000
+//     }
+// ]
+// let tr = userorder.reduce((acc,n)=>acc+n.revenue,0);
+// console.log("total revenue ",tr);
+
+
+// let slargest = [34,23,65,90,2,30];
+// let largest = slargest[0]
+// let sl = slargest[1]
+// for(let i in slargest){
+//     if(slargest[i]>largest){
+//         sl=largest
+//         largest=slargest[i];
+//     }
+// }
+// console.log(sl);
+
+// function missingvalue(arr,n){
+//     let expsum = (n*(n+1))/2;
+//     let actsum = arr.reduce((acc,num)=>acc+num,0)
+//     return expsum-actsum;
+// }
+// console.log(missingvalue([1,2,3,4,5,7,8],8));
+
+// let obj1 = {
+//     name:'adnan khan'
+// }
+// let obj2 = {
+//     name:'ak47'
+// }
+// console.log(JSON.stringify(obj1)===JSON.stringify(obj2));
 
 
 
+// Interview-Level Questions
+// 1. Function Declaration
+function add(a, b) {
+    return a + b;
+}
 
 
+// 2. Function Expression
+let add2 = function(a, b) {
+    return a + b;
+};
 
 
+// 3. Arrow Function
+let add3 = (a, b) => {
+    return a + b;
+};
+// Function Declaration
+// → Normal function
+// → Hoisted
+
+// Function Expression
+// → Function ko variable me store kiya
+
+// Arrow Function
+// → Function ka short form
+// → this alag behave karta hai
+
+// let arr = [2,4,2,3]
+// let sl = arr.slice(1,2); //extract elements
+// console.log(sl);
+// let sp = arr.splice(0,4,1,2,3,4,5); //start,remove count , add
+// console.log(sp);
+// console.log(arr);
+
+// let arr = [ 1,2,3,4,5]
+// let m = arr.map((n)=>n*n)
+// console.log(m,arr);
+// let fil = arr.filter(n=>n<3)
+// console.log(fil,arr);
+// let red = arr.reduce((n,m)=>n+m,1)
+// console.log(red,arr);
 
 
+// let arr = [10,20,30,40,50]
+// for(let i in arr){
+//     console.log(i);
+// }
+// for(let j of arr){
+//     console.log(j);
+// }
+
+// let obj = {
+//     student:{
+//         state:{
+//             city:"MP"
+//         }
+//     }
+// }
+// let objshello = {...obj}
+// objshello.student.name = "adnan"
+// // console.log(objshello,obj);
+// let og = JSON.stringify(obj)
+// let objdeep = JSON.parse(og)
+// obj.student.roll = 13
+// console.log(objdeep,obj);
+
+// Logic Building Questions
+// let rot = [1,2,3,4,5]
+// let k =3
+// let step = k%rot.length
+// let front = rot.slice(step)
+// let back = rot.slice(0,step)
+// rot = [...front,...back]
+// console.log(rot);
 
 
 //SHEET 2
