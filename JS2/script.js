@@ -1128,6 +1128,242 @@ let add3 = (a, b) => {
 // console.log(rot);
 
 
+// let str = "abbcccdddd"
+// let fre ={}
+// for(let i of str){
+//     fre[i] = (fre[i]||0)+1
+// }
+// console.log(fre);
+
+// let sentence = "Find longest word in a sentence";
+// let sen= sentence.split(" ");
+// let longestword = ""
+// for(let i of sen){
+//     if(longestword.length<i.length){
+//         longestword= i
+//     }
+// }
+// console.log(longestword);
+
+// Check if two strings are anagrams.
+// let str1 = "listen"
+// let str2 = "silnet"
+// let flag = true
+// if(str1.length!== str2.length){
+//     flag = false;
+// }
+// else{
+//     for(let i of str1){
+//     if(!str2.includes(i)){
+//         flag = false
+//         break;
+//     }
+//     else{
+//         str2 = str2.replace(i,"")
+//     }
+// }
+// }
+// console.log(flag);
+
+// let sen = "adnan khan Capitalize first letter of every word."
+// let sp = sen.split(" ")
+// let capsen='';
+// for(let i of sp){
+//     let a =i[0].toUpperCase();
+//     let ii = i.replace(i[0],a)
+//     capsen = capsen + " " +ii;
+// }
+// console.log(capsen);
+
+// let cap = sen.split(" ").map((n)=>n.charAt(0).toUpperCase()+n.slice(1)).join(" ")
+// console.log(cap);
+
+// let value = [0,false,true,"0",1,-5,"ehloo",-0,[],{},Infinity,"",null,undefined,NaN]
+// let truthyvalue = value.filter(Boolean)
+// let falseyvalue = value.filter(n=>!Boolean(n))
+// console.log("Truthy: ",truthyvalue);
+// console.log("Falsey: ",falseyvalue);
+
+// let arr = [1,2,3,4]
+// let obj = {...arr}
+// console.log(obj);
+
+// let obj = {a:"andna",b:"khan"}
+// let arr = Object.entries(obj)
+// console.log(arr);
+
+// let arr = [1,2,3,4,5,6,1,5,3,2]
+// for(let i=0 ; i< arr.length-1;i++){
+//     for(let j=i+1 ; j< arr.length;j++)
+//     {
+//         if(arr[i]==arr[j]){
+//             console.log(arr[j]);
+//         }
+//     }
+// }
+
+// let s1 = [1,2,3]
+// let s2 = [4,5,6]
+// console.log([...s1,...s2]);
+
+//real world practice
+// let passwordregex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}/;
+// function auth(n="",g="",p=""){
+//     if(n.length===0 || g.length===0|| p.length === 0){
+//         console.warn("Fields are empty")
+//         return;
+//     }
+//     if(!g.includes("@gmail.com")){
+//         console.warn("write @gmail.com in gmail");
+//         return;
+//     }
+//     if( !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(p)){
+//         console.log("Invalid Password");
+//     }
+// }
+// auth()
+// auth("adnan","khanadnan032@gmail.com","Adnan89@")
+
+
+// let otp = Math.floor(Math.random()*9000+1000)
+// console.log(otp);
+
+// let pass = "Adnan9@$"
+// console.log(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(pass))
+
+// let list  = {player1 :{
+//     name:"adnan",
+//     score:99
+// },}
+// function addPlayer(n,s){
+//     list["player"+(Object.keys(list).length+1)]={
+//         name:n,
+//         score:s
+//     }
+// }
+// function updatescore(naam,sc){
+//     let p = Object.values(list).find(n=>n.name===naam)
+//     p.score = sc
+// }
+// addPlayer("ali",0)
+// addPlayer("aliya",10)
+// updatescore("ali",100)
+// let array = Object.values(list)
+// array.sort((a,b)=>b.score-a.score)
+// console.table(array);
+
+
+//attendace management logic
+// let listStu = {1:{
+//         Name:"Sahil",
+//         AttendacePercentage:"50%",
+//         lecturesAttend:150,
+//         absentLectures:150,
+//         Present:""
+//     }}
+    
+// function addStu(name,lA,lAbs,Pre="Absent"){
+//     listStu[(Object.keys(listStu).length+1)]={
+//         Name:name,
+//         lecturesAttend:lA,
+//         absentLectures:lAbs,
+//         Present:Pre
+//     }
+// }
+
+// function attendace(rollNo){
+//     let a = Object.keys(listStu).find((key)=>Number(key)===rollNo)
+//     listStu[a].Present = "Present"
+// }
+
+// function updateAttendance(rollNo,lA,lAbs){
+//     let a = Object.keys(listStu).find((key)=>Number(key)===rollNo)
+//     listStu[a].lecturesAttend=lA,
+//     listStu[a].absentLectures=lAbs
+// }
+
+// function calculateAtt(rollNo){
+//     let a = Object.keys(listStu).find((key)=>Number(key)===rollNo)
+//     let b = listStu[a].lecturesAttend
+//     let c = listStu[a].absentLectures
+//     let persentage = ((b)/(b+c))*100;
+//     listStu[a].AttendacePercentage = `${persentage.toFixed(2)}%`
+// }
+// console.log(listStu);
+// addStu("adnan khan",150,150,"Present");
+// console.log(listStu);
+// addStu("srk khan",290,10);
+// attendace(1);
+// console.log(listStu);
+// updateAttendance(2,200,100)
+// calculateAtt(3)
+// calculateAtt(2)
+
+
+// # Advanced Functional Programming
+// compose func 
+function add (a,b) {return a+b};
+function sub (a,b) {return a-b};
+function mul (a,b) {return a*b};
+function div (a,b) {return a/b};
+
+function compose(...fns){
+    return function (val,tu){
+        return fns.reduceRight((acc,fn)=>fn(acc,tu),val,tu)
+    }
+}
+
+// console.log(compose(add,sub,mul,div)(4,2));
+//1. 4/2=2
+//2. 2*2=4
+//3. 4-2=2
+//4. 2+2=4
+
+function pipi(...fns){
+    return function(val,secval){
+        return fns.reduce((acc,fn)=>fn(acc,secval),val,secval)
+    }
+}
+//1. 2+3=5
+//2. 5-3=2
+//3. 2*3=6
+
+// console.log(pipi(add,sub,mul)(2,3));
+
+
+//create custom event emitter
+class CustomEventEmitter{
+    constructor(){
+        this.event={};
+    }
+    on(eventName,callback){
+        if(!this.event[eventName]){
+            this.event[eventName] = [];
+        }
+        this.event[eventName].push(callback);
+    }
+    emit(eventName,...args){
+        if(this.event[eventName]){
+            this.event[eventName].forEach(callback => callback(...args));
+        }
+    }
+}
+const obj = new CustomEventEmitter();
+
+obj.on('orderplaced',(orderid,price)=>{
+    console.log(`order ${orderid} receiced. Total Price: ${price}`);
+})
+
+// obj.emit('orderplaced','OD12345',1500)
+// obj.emit('orderplaced','OD12343',1000)
+// obj.emit('orderplaced','OD89345',1200)
+
+
+
+
+
+
+
 //SHEET 2
 // let arr = ["spider man","domsday","toxic","KGF","totaldhamal"]
 // for(let i=0; i<arr.length; i++){
