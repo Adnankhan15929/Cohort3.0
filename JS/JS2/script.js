@@ -1332,34 +1332,66 @@ function pipi(...fns){
 
 
 //create custom event emitter
-class CustomEventEmitter{
-    constructor(){
-        this.event={};
-    }
-    on(eventName,callback){
-        if(!this.event[eventName]){
-            this.event[eventName] = [];
-        }
-        this.event[eventName].push(callback);
-    }
-    emit(eventName,...args){
-        if(this.event[eventName]){
-            this.event[eventName].forEach(callback => callback(...args));
-        }
-    }
-}
-const obj = new CustomEventEmitter();
+// class CustomEventEmitter{
+//     constructor(){
+//         this.event={};
+//     }
+//     on(eventName,callback){
+//         if(!this.event[eventName]){
+//             this.event[eventName] = [];
+//         }
+//         this.event[eventName].push(callback);
+//     }
+//     emit(eventName,...args){
+//         if(this.event[eventName]){
+//             this.event[eventName].forEach(callback => callback(...args));
+//         }
+//     }
+// }
+// const obj = new CustomEventEmitter();
 
-obj.on('orderplaced',(orderid,price)=>{
-    console.log(`order ${orderid} receiced. Total Price: ${price}`);
-})
+// obj.on('orderplaced',(orderid,price)=>{
+//     console.log(`order ${orderid} receiced. Total Price: ${price}`);
+// })
+
 
 // obj.emit('orderplaced','OD12345',1500)
 // obj.emit('orderplaced','OD12343',1000)
 // obj.emit('orderplaced','OD89345',1200)
 
 
+// function done(value){
+//     console.log(value);
+// }
+// function outer(){
+//     var savedCallBack;
+//     var savedValue;
+//     var state = "pending";
+//     function then(callback) {
+//         if(state==="fulfilled"){
+//             callback(savedValue)
+//         }
+//         else{
+//             savedCallBack = callback;
+//         }
+//     }
+//     function resolve(value){
+//         if(state!=="pending") return ;
+//         savedValue=value
+//         state="fulfilled";
+//         if(savedCallBack){
+//             savedCallBack(savedValue)
+//         }
+//     }
+//     return {
+//         then:then,
+//         resolve:resolve
+//     }
+// }
 
+// const something = outer()
+// something.then(done);
+// something.resolve("Hello")
 
 
 
@@ -1979,3 +2011,6 @@ obj.on('orderplaced',(orderid,price)=>{
 // showAvailableBooks()
 // returnBook(3)
 // showAvailableBooks()
+
+
+
