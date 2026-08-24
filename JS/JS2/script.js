@@ -1394,6 +1394,48 @@ function pipi(...fns){
 // something.resolve("Hello")
 
 
+// retry mechanism
+async function apicall() {
+    const res = await fetch("http://api.weatherapi.com/v1");
+
+    if (!res.ok) {
+        throw new Error("API call failed");
+    }
+
+    return res;
+}
+
+async function retry(inp, n = 3) {
+    if (n === 0) {
+        throw new Error("All retry attempts failed");
+    }
+
+    try {
+        const result = await inp();
+        return result;
+    } 
+    catch (err) {
+        console.log("Failed. Attempts left:", n - 1);
+
+        return retry(inp, n - 1);
+    }
+}
+
+retry(apicall)
+    .then((result) => console.log("Success:", result))
+    .catch((err) => console.log("Final Error:", err.message));
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //SHEET 2
