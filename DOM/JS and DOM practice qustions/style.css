@@ -1,0 +1,13 @@
+.completed{
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.msg1,.msg2{
+    color: red;
+}
+
+img{
+    height: 300px;
+    width: 300px;
+}
