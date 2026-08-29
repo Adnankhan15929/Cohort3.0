@@ -198,9 +198,50 @@
 // obj.emit("purchased",{name:"pen",price:100})
 
 // 11
-// function memoize(fn){
-//     return
+// function memoize(fn) {
+//   let cache = {};
+//   return function (...args) {
+//     let i = JSON.stringify(...args);
+//     if (cache[i]) {
+//       return cache[i];
+//     } else {
+//       cache[i] = fn(...args);
+//       return cache[i];
+//     }
+//   };
 // }
+// function add(a, b) {
+//   return a + b;
+// }
+// console.log(memoize(add)(2, 3));
+// console.log(memoize(add)(3, 3));
+// console.log(memoize(add)(2, 3));
+// console.log(memoize(add)(5, 3));
+
+// 12
+// let count = 0;
+// async function fake() {
+//   count++;
+//   if (count === 3) {
+//     return new Promise(r=>r("successful"));
+//   }
+//   throw new Error("failed");
+// }
+// async function retry(asyncfunc, attempts) {
+//   for (let i = 0; i < attempts; i++) {
+//     try {
+//       const result = await asyncfunc();
+//       return result;
+//     } catch (err) {
+//       console.log(err.message, i + 1);
+//     }
+//   }
+// }
+// retry(fake, 3).then((r) => {
+//   console.log(r);
+// });
+
+// 13
 
 //DOM
 // 16
@@ -369,5 +410,395 @@
 //     inp.textContent = localStorage.getItem("inputTxt")
 // })
 
+//29
+// const q1 = document.querySelector(".qus1")
+// const a1 = document.querySelector(".ans1")
+// const q2 = document.querySelector(".qus2")
+// const a2 = document.querySelector(".ans2")
+// const q3 = document.querySelector(".qus3")
+// const a3 = document.querySelector(".ans3")
+
+// q1.addEventListener("click",()=>{
+//     a1.classList.toggle("hidden")
+//     a2.classList.add("hidden")
+//     a3.classList.add("hidden")
+// })
+// q2.addEventListener("click",()=>{
+//     a2.classList.toggle("hidden")
+//     a1.classList.add("hidden")
+//     a3.classList.add("hidden")
+// })
+// q3.addEventListener("click",()=>{
+//     a3.classList.toggle("hidden")
+//     a2.classList.add("hidden")
+//     a1.classList.add("hidden")
+// })
+
+// const q = document.querySelectorAll(".faq p[class^='qus']")
+
+// q.forEach(element => {
+//     element.addEventListener("click",()=>{
+//         const currans= element.nextElementSibling;
+//         const isOpen = !currans.classList.contains("hidden");
+//         document.querySelectorAll(".faq p[class^='ans'").forEach(ans => {
+//         ans.classList.add("hidden")
+//         });
+//         if(!isOpen){
+//             currans.classList.remove("hidden")
+//         }
+//     })
+// });
+
+//30
+// const buttons = document.querySelectorAll(".btn")
+// const contents = document.querySelectorAll(".content")
+
+// buttons.forEach(button => {
+//     button.addEventListener("click",()=>{
+//         buttons.forEach(btn => {
+//             btn.classList.remove("active")
+//         });
+//         contents.forEach(content => {
+//             content.classList.remove("active")
+//         });
+//         button.classList.add("active")
+//         contents[button.dataset.id].classList.add("active")
+//     })
+
+// });
+
+// 31
+// const div = document.querySelector("div");
+// let n;
+// const allS = document.querySelectorAll("#i");
+// allS.forEach((e) => {
+//   e.addEventListener("click", (e) => {
+//     n = e.target.dataset.id;
+//     coloring(n);
+//   });
+// });
+
+// function coloring(n) {
+//   for (let i =0; i <5; i++) {
+//     div.children[i].classList.remove("coloring");
+//   }
+//     for (let i = 0; i <= n; i++) {
+//     div.children[i].classList.add("coloring");
+//   }
+// }
+
+// 32
+// let names = ["adnan","ali","alzeba","ramesh","ram","raj","nobita","ibaad"]
+// const inp = document.querySelector("input")
+// const box = document.querySelector('.namesBox')
+// inp.addEventListener("input",(e)=>{
+//     let name =e.target.value
+//     if(!name) {
+//         names.forEach(n => {
+//             box.innerHTML += `<p>${n}</p>`
+//         });
+//         return ;
+//     }
+//     let filterNames =names.filter(n=>{return n.startsWith(name)})
+//     if(filterNames.length>0){
+//         box.innerHTML = filterNames.map(n=>`<p>${n}</p>`).join('')
+//     }
+//     else{
+//         box.innerHTML=`<p>"No names are found"</p>`
+//     }
+// })
+
+// 33
+// const pass = document.querySelector("input");
+// const label = document.querySelector("label");
+// pass.addEventListener("input", (e) => {
+//   let p = e.target.value;
+
+//   if (p.length > 8 && /\d/.test(p) && /[a-z]/.test(p) && /[A-Z]/.test(p)) {
+//     label.textContent = "STRONG";
+//   }
+//   else if (p.length > 8 && /\d/.test(p) && /[a-z]/.test(p) ) {
+//     label.textContent = "MEDIUM";
+//   }
+//   else {
+//     label.textContent = "WEAK";
+//   }
+// });
+
+// 34
+// const btn = document.querySelector("button");
+// const div = document.querySelector(".box");
+// const h1 = document.querySelector("h1");
+// const outer = document.querySelector(".outer");
+
+// btn.addEventListener("click", (e) => {
+//   div.style.display = "flex";
+//   outer.style.display = "flex";
+//   e.stopPropagation();
+
+// });
+// h1.addEventListener("click", (e) => {
+//   div.style.display = "none";
+//   outer.style.display = "none";
+// });
+// div.addEventListener("click",(e)=>{
+//     e.stopPropagation()
+// })
+// outer.addEventListener("click", (e) => {
+//   div.style.display = "none";
+//   outer.style.display = "none";
+// });
+
+// 35
+// const btn = document.querySelector("button")
+// const ul = document.querySelector("ul")
+
+// btn.addEventListener("click",()=>{
+//     ul.classList.toggle('hidden')
+// })
+// ul.addEventListener("click",(e)=>{
+//     if(e.target.classList.contains('item'))
+//     {
+//         btn.textContent = e.target.textContent;
+//         ul.classList.add("hidden")
+//     }
+// })
+
+// 36
+// let Titems = document.querySelector(".totalItem");
+// let Tprice = document.querySelector(".totalPrice");
+
+// const btn = document.querySelectorAll("button");
+// let arr = []
+// let total =0;
+// btn.forEach((button) => {
+//   button.addEventListener("click", () => {
+//     arr.push(Number(button.parentElement.querySelector(".price").textContent))
+//     Titems.textContent = arr.length;
+//     total =arr.reduce((n,m)=>n+m,0);
+//     Tprice.textContent = total
+//   });
+// });
+
+// 37
+// let data = [
+//   ["Ali", "20", "Indore"],
+//   ["John", "30", "NYC"],
+//   ["Raj", "50", "Bhopal"],
+//   ["Adnan", "25", "Mumbai"],
+// ];
+
+// function sortBy(c) {
+//   if (document.querySelector("table").classList.toggle("ascending")) {
+//     data.sort((a, b) => a[c].localeCompare(b[c]));
+//   } else {
+//     data.sort((a, b) => b[c].localeCompare(a[c]));
+//   }
+//   print();
+// }
+
+// function print() {
+//   let tbody = document.querySelector("tbody");
+//   tbody.innerHTML = "";
+//   for (let i = 0; i <data.length; i++) {
+//     let row = `<tr><td>${data[i][0]}</td><td>${data[i][1]}</td><td>${data[i][2]}</td>`;
+//     tbody.innerHTML += row;
+//   }
+// }
+
+// 38
+// let hour = document.querySelector(".hour");
+// let sec = document.querySelector(".sec");
+// let min = document.querySelector(".min");
+// let start = document.querySelector(".start");
+// let pause = document.querySelector(".pause");
+// let reset = document.querySelector(".reset");
+
+// let count = 0;
+// let m = 0;
+// let h = 0;
+// let interval=null;
+// let timer = 1000;
+
+// function t(timer) {
+//   if(interval===null){
+//     interval = setInterval(() => {
+//     count++;
+//     if (count === 60) {
+//       count = 0;
+//       m++;
+//       min.textContent = m;
+//     }
+//     if (m === 60) {
+//       m = 0;
+//       h++;
+//       hour.textContent = h;
+//     }
+//     sec.textContent = count;
+//   }, timer);
+//   }
+// }
+// start.addEventListener("click", () => {
+//   t(timer);
+// });
+
+// reset.addEventListener("click", () => {
+//   clearInterval(interval);
+//   sec.textContent = 0;
+//   count = 0;
+//   min.textContent = 0;
+//   m = 0;
+//   hour.textContent = 0;
+//   h = 0;
+// });
+
+// pause.addEventListener("click", () => {
+//   clearInterval(interval);
+//   interval=null;
+// });
+
+// 39
+
+// const n1 = document.querySelector(".next");
+// const n2 = document.querySelector(".next2");
+// const back = document.querySelector(".back");
+// const back2 = document.querySelector(".back2");
+
+// const submit = document.querySelector(".submit");
+// let page1 = document.querySelector(".step1");
+// let page2 = document.querySelector(".step2");
+// let page3 = document.querySelector(".step3");
+// let form = document.querySelector("form");
+
+// let n;
+// let email;
+// let num;
+// let add;
+// n1.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   n = document.querySelector("#name").value;
+//   num = document.querySelector("#number").value;
+//   if (n === "" || num === "") return alert("Fill the fields");
+//   page1.style.display = "none";
+//   page2.style.display = "flex";//class list ka use krke bhi me hide or show kr skta tha
+//   console.log(n, num);
+// });
+// n2.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   email = document.querySelector("#email").value;
+//   add = document.querySelector("#address").value;
+//   if (add === "" || email === "") return alert("Fill the fields");
+//   page3.style.display = "flex"; //class list ka use krke bhi me hide or show kr skta tha
+//   page2.style.display = "none";
+//   console.log(email, add);
+
+//   document.querySelector('.nameP').textContent = n
+//   document.querySelector('.emailP').textContent = email
+//   document.querySelector('.addressP').textContent = add
+//   document.querySelector('.numberP').textContent = num
+
+// });
+// back.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   page3.style.display = "none";//class list ka use krke bhi me hide or show kr skta tha
+//   page2.style.display = "flex";
+// });
+// back2.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   page2.style.display = "none";//class list ka use krke bhi me hide or show kr skta tha
+//   page1.style.display = "flex";
+// });
+
+// form.addEventListener('submit',()=>{
+//   console.log(n);
+//   console.log(num);
+//   console.log(add);
+//   console.log(email);
+// })
+
+// 40
+// const btn = document.querySelector('button')
+// btn.addEventListener("click",()=>{
+//   let toast = document.createElement('p')
+//   toast.textContent = "Saved Successfully!"
+//   document.body.append(toast)
+//   setTimeout(() => {
+//   toast.remove()
+//   }, 3000);
+// })
+
+// 41
+// const img = document.querySelectorAll("img");
+// img.forEach((e, i) => {
+//   e.addEventListener("click", () => {
+//     let openimg = document.createElement("div");
+//     openimg.remove();
+//     openimg.classList.add("openImg");
+//     openimg.style.display = "flex";
+//     openimg.innerHTML = `<h1 class="cut">X</h1><img src="${e.src}" class="badikrdo"></img>`;
+//     document.body.append(openimg);
+//     document.querySelector(".cut").style.cursor = "pointer";
+//     document.querySelector(".cut").addEventListener("click", () => {
+//       openimg.remove();
+//     });
+//     openimg.querySelector("img").addEventListener("click",(e)=>{
+//         e.stopPropagation()
+//     });
+//     openimg.addEventListener("click", () => {
+//       openimg.remove();
+//     });
+//   });
+// });
+
+// 42
+
+// const input = document.querySelector("input");
+// const btn = document.querySelector("button");
+// const ul = document.createElement("ul");
+// document.querySelector(".todo").append(ul);
+// display();
+// let index = 0;
+// btn.addEventListener("click", () => {
+//   if (input.value === "") return;
+//   index++;
+//   ul.innerHTML += `<li data-index="${index}">${input.value} <button class = "dlt">Dlt</button></li>`;
+//   localStorage.setItem(
+//     `${index}`,
+//     JSON.stringify({ text: input.value, completed: false }),
+//   );
+//   input.value = "";
+// });
+
+// ul.addEventListener("click", (e) => {
+//   if (e.target.classList.contains("dlt")) {
+//     let li = e.target.parentElement;
+//     let taskIndex = li.dataset.index;
+//     localStorage.removeItem(taskIndex);
+//     li.remove();
+//   }
+//   if (e.target.tagName === "LI") {
+//     let taskIndex = e.target.dataset.index;
+//     e.target.classList.toggle("completed");
+//     let task = JSON.parse(localStorage.getItem(taskIndex));
+//     task.completed = !task.completed;
+//     localStorage.setItem(`${taskIndex}`, JSON.stringify(task));
+//   }
+// });
+
+// function display() {
+//   for (let i = 0; i < localStorage.length; i++) {
+//     let key = localStorage.key(i);
+//     let task = JSON.parse(localStorage.getItem(key))
+//     let li = document.createElement("li");
+//     li.dataset.index  = key
+//     li.innerHTML = `${task.text} <button class = "dlt">Dlt</button></li>`;
+//     if (task.completed) {
+//       li.classList.add("completed");
+//     }
+//     ul.append(li);
+//   }
+// }
 
 
+
+// 43
