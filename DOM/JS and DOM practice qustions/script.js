@@ -242,6 +242,185 @@
 // });
 
 // 13
+// let obj = {
+//   name: "adnan",
+//   state: "student",
+// };
+// let callbackStore;
+// function getState() {
+//   return obj.state;
+// }
+// function updateState(data) {
+//   obj.state = data;
+//   if(callbackStore) callbackStore()
+// }
+// function subscribe(callback) {
+//   callbackStore=callback
+// }
+// function callbackfn() {
+//   console.log("state changed");
+// }
+// console.log(getState());
+// subscribe(callbackfn);
+// updateState("Employee");
+// console.log(getState());
+
+// 14
+// let arr = [
+//   {
+//     name: "adnan",
+//     state: {
+//       city: {
+//         address: "jinsi Bhopal MP",
+//       },
+//     },
+//     stage: "student",
+//   },
+//   2,
+//   6,
+//   4,
+//   {
+//     "10th": 60,
+//     "12th": 87,
+//   },
+// ];
+// function deepClone(val) {
+//     if(Array.isArray(val)){
+//       let newArr =[]
+//       for(let i=0; i<val.length; i++){
+//         // console.log("array=>",val[i]);
+//         newArr.push(deepClone(val[i]))
+//       }
+//       return newArr
+//     }
+//     else if(typeof val ==="object"){
+//       let newObj = {}
+//       let objKey =Object.keys(val)
+//       for(let i=0; i<objKey.length; i++){
+//         // console.log("object=>",val[objKey[i]]);
+//         newObj[objKey[i]]=deepClone(val[objKey[i]])
+//       }
+//       return newObj
+//     }
+//     else{
+//       return val;
+//     }
+// }
+// let deepCopy = deepClone(arr)
+// console.log(deepCopy);
+// console.log(arr);
+// deepCopy[0].state.city.address = "Ali"
+// console.log(deepCopy);
+// console.log(arr);
+
+// 15
+// async function t1() {
+//   return new Promise(function (r) {
+//     setTimeout(function () {
+//       console.log("Task 1 done");
+//       r();
+//     }, 1000);
+//   });
+// }
+// async function t2() {
+//   return new Promise(function (r) {
+//     setTimeout(function () {
+//       console.log("Task 2 done");
+//       r();
+//     }, 4000);
+//   });
+// }
+// async function t3() {
+//   return new Promise(function (r) {
+//     setTimeout(function () {
+//       console.log("Task 3 done");
+//       r();
+//     }, 1500);
+//   });
+// }
+// async function t4() {
+//   return new Promise(function (r) {
+//     setTimeout(function () {
+//       console.log("Task 4 done");
+//       r();
+//     }, 1000);
+//   });
+// }
+// async function t5() {
+//   return new Promise(function (r) {
+//     setTimeout(function () {
+//       console.log("Task 5 done");
+//       r();
+//     }, 4000);
+//   });
+// }
+// async function t6() {
+//   return new Promise(function (r) {
+//     setTimeout(function () {
+//       console.log("Task 6 done");
+//       r();
+//     }, 1500);
+//   });
+// }
+// async function t7() {
+//   return new Promise(function (r) {
+//     setTimeout(function () {
+//       console.log("Task 7 done");
+//       r();
+//     }, 1000);
+//   });
+// }
+// async function t8() {
+//   return new Promise(function (r) {
+//     setTimeout(function () {
+//       console.log("Task 8 done");
+//       r();
+//     }, 4000);
+//   });
+// }
+// async function t9() {
+//   return new Promise(function (r) {
+//     setTimeout(function () {
+//       console.log("Task 9 done");
+//       r();
+//     }, 1500);
+//   });
+// }
+// async function t10() {
+//   return new Promise(function (r) {
+//     setTimeout(function () {
+//       console.log("Task 10 done");
+//       r();
+//     }, 1500);
+//   });
+// }
+
+// let taskArr = [t1, t2, t3, t4, t5, t6, t7, t8, t9, t10];
+// let index = 0;
+// let running = 0;
+// let completed = 0;
+// function tasks(N) {
+//   for (let i = 0; i < N; i++) {
+//     startNext(N);
+//   }
+// }
+// function startNext(N) {
+//   if (running < N && index < taskArr.length) {
+//     let task = taskArr[index];
+//     index++;
+//     running++;
+//     task().then(function () {
+//       running--;
+//       completed++;
+//       if (completed === taskArr.length) {
+//         console.log("sb chl gye");
+//       } else {
+//         startNext(N);
+//       }
+//     });
+//   }
+// }
+// tasks(5);
 
 //DOM
 // 16
@@ -799,6 +978,88 @@
 //   }
 // }
 
-
-
 // 43
+// const btn = document.createElement("button");
+// document.body.append(btn);
+// btn.textContent = localStorage.key(0);
+// let saveTheme = localStorage.getItem("theme");
+// if (saveTheme === "Dark") {
+//   btn.textContent = "Light Theme";
+//   document.body.classList.add("dark");
+// } else {
+//   btn.textContent = "Dark Theme";
+//   document.body.classList.remove("dark");
+// }
+// btn.addEventListener("click", () => {
+//     document.body.classList.toggle('dark')
+//   if (document.body.classList.contains("dark")) {
+//     btn.textContent = "Light Theme";
+//     document.body.classList.add("dark");
+//     localStorage.setItem(
+//       "theme","Dark");
+//   } else {
+//     btn.textContent = "Dark Theme";
+//     document.body.classList.remove("dark");
+//     localStorage.setItem(
+//       "theme","White");
+//   }
+// });
+
+// 44
+// let arr = [
+//   {
+//     text: "task1",
+//     complt: true,
+//   },
+//   {
+//     text: "task2",
+//     complt: false,
+//   },
+//   {
+//     text: "task3",
+//     complt: false,
+//   },
+// ];
+// render();
+// function add(obj) {
+//   arr.push(obj);
+//   render();
+// }
+// function dlt(objName) {
+//   let flag = arr.find((n) => n.text === objName);
+//   arr = arr.filter((n) => n.text !== flag.text);
+//   render();
+// }
+// function update(obj) {
+//   let flag = arr.find((n) => n.text === obj);
+//   flag.complt = !flag.complt;
+//   render();
+// }
+// const inp = document.querySelector("input");
+// const btn = document.querySelector("button");
+// btn.addEventListener("click", () => {
+//   add({ text: inp.value, complt: false });
+//   inp.value = "";
+// });
+// function render() {
+//   let ul = document.querySelector("ul");
+//   ul.innerHTML = "";
+//   arr.forEach((e, i) => {
+//     ul.innerHTML += `<li>${e.text}<button data-index=${i} class="dlt">Delete</button><input type="checkbox" data-index=${i} class="checkbox" ${e.complt ? "checked" : ""}>
+//     </li>`;
+//   });
+//   document.querySelectorAll(".dlt").forEach((e) => {
+//     e.addEventListener("click", () => {
+//       let i = e.dataset.index;
+//       dlt(arr[i].text);
+//     });
+//   });
+//   document.querySelectorAll(".checkbox").forEach((e) => {
+//     e.addEventListener("click", () => {
+//         let ind =e.dataset.index
+//         update(arr[ind].text)
+//     });
+//   });
+// }
+
+// 45

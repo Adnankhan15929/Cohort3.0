@@ -251,7 +251,12 @@ img{
 
 
 
-.completed {
+/* .completed {
   text-decoration: line-through;
   opacity: 0.6;
+} */
+
+.dark{
+  background-color: darkblue;
+  color: white;
 }
