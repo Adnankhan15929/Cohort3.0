@@ -1063,3 +1063,82 @@
 // }
 
 // 45
+
+// const ul = document.querySelector("ul");
+// let count =21;
+// window.addEventListener("scroll", () => {
+//   if (
+//     window.scrollY //user ne kitna scroll kia
+// + window.innerHeight //screen/browser window ki visible height kitni hai.
+//  >= document.documentElement.scrollHeight //Pure page ki total height kitni hai.
+//  - 2 //2 pixel pehle load kro
+//   ) {
+//     for (let i = 1; i <= 20; i++) {
+//       let item = document.createElement("li");
+//       item.textContent = count;
+//         count++;
+//       ul.append(item);
+//     }
+//   }
+// });
+
+// 46
+
+// async function dataLoad() {
+//   try {
+//     let res = await fetch("https://fakestoreapi.com/products/");
+//     let data = await res.json();
+//     let loading = document.querySelector("div");
+//     loading.style.display = "none";
+//     let cards = document.createElement("div");
+//     cards.classList.add("cards");
+//     cards.style.display = "flex";
+//     document.querySelector("body").append(cards);
+//     data.forEach((element) => {
+//       let card = document.createElement("div");
+//       card.innerHTML = `
+//         <div class="card">
+//           <h1 class="title">${element.title}</h1>
+//           <p class="desc">${element.description}</p>
+//         </div>`;
+//       cards.append(card);
+//     });
+//   } catch (err) {
+//     let loading = document.querySelector("p");
+//     loading.textContent = err;
+//     loading.backgroundColor = "red";
+//     loading.color = "white";
+//   }
+// }
+// dataLoad();
+
+// 47
+// let ul = document.createElement("ul");
+// async function api(val) {
+//   try {
+//     let res = await fetch("https://fakestoreapi.com/products/");
+//     let data = await res.json();
+//     ul.innerHTML = ""
+//     data.forEach((element) => {
+//       if (val === element.category) {
+//         ul.innerHTML += `Title :- ${element.title}  </br> Desc :- ${element.description} </br>`;
+//       }
+//     });
+//   } catch (err) {
+//     ul.textContent = "Something went wrong!";
+//   }
+//   document.querySelector("body").append(ul);
+// }
+// let inp = document.createElement("input");
+// document.querySelector("body").append(inp);
+// let setting;
+// inp.addEventListener("input", (e) => {
+//     clearTimeout(setting);
+//     setting= setTimeout(() => {
+//     api(e.target.value);
+//   }, 400);
+// });
+
+
+
+// 48

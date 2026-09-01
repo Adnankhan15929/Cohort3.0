@@ -256,7 +256,52 @@ img{
   opacity: 0.6;
 } */
 
-.dark{
+/* .dark{
   background-color: darkblue;
   color: white;
+} */
+
+
+/* .loadingDiv{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: rgba(135, 207, 235, 0.637);
+  padding: 20px 60px;
+  border: 1px solid #00000093;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px 1px gray;
 }
+
+.cards{
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  display: none;
+  flex-wrap:wrap;
+  gap: 20px;
+}
+
+.card{
+  height: fit-content;
+  background-color: rgba(0, 170, 255, 0.813);
+  width: 200px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title{
+  font-size: 20px;
+}
+.desc{
+  font-size: 15px;
+} */
+
+
+
+
