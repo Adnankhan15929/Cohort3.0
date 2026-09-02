@@ -1139,6 +1139,153 @@
 //   }, 400);
 // });
 
-
-
 // 48
+// const btn = document.querySelector("button");
+// btn.addEventListener("click", () => {
+//     const myEvent = new CustomEvent("itemAdded",{detail:"laptop"})
+//     document.dispatchEvent(myEvent)
+// });
+// document.addEventListener("itemAdded", (e) => {
+//     // console.log(e.detail);
+//   document.querySelector("p").textContent = e.detail;
+// });
+
+// 49
+// let val;
+// let ind;
+// document.addEventListener("dragstart", (e) => {
+//   val = e.target;
+//   console.log(val);
+// });
+// document.addEventListener("dragover", (e) => {
+//   e.preventDefault();
+//   if (e.target.tagName === "LI") {
+//     ind = e.target;
+//     console.log(ind);
+//   }
+// });
+
+// document.addEventListener("drop", (e) => {
+//   document.querySelector("ul").insertBefore(val, ind);
+// });
+
+// 50
+// let value ;
+// let loc;
+// document.addEventListener("dragstart",(e)=>{
+//     value = e.target;
+// })
+// document.addEventListener('dragover',(e)=>{
+//     e.preventDefault();
+//     loc = e.target.parentElement;
+// })
+// document.addEventListener("drop",()=>{
+//     loc.append(value);
+// })
+
+// 51
+// let nameValidation = /^[a-zA-Z\s'-]{2,50}$/;
+// let emailValidation = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+// let passwordValidation = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+// document.querySelector("form").addEventListener("input", (e) => {
+//     e.target.nextElementSibling.textContent = ""
+//     if (e.target.type === "text") {
+//         if(e.target.value===""){
+//         e.target.nextElementSibling.textContent = "*Fill Name"
+//     }
+//     else if(!nameValidation.test(e.target.value)){
+//         e.target.nextElementSibling.textContent = "*Invalid Name"
+//     }
+//   }
+//   if (e.target.type === "email") {
+//     if(e.target.value===""){
+//         e.target.nextElementSibling.textContent = "*Fill email"
+//     }
+//     else if(!emailValidation.test(e.target.value)){
+//         e.target.nextElementSibling.textContent = "*Invalid email"
+//     }
+//   }
+//   if (e.target.type === "password") {
+//     if(e.target.value===""){
+//         e.target.nextElementSibling.textContent = "*Fill Password"
+//     }
+//     else if(!passwordValidation.test(e.target.value)){
+//         e.target.nextElementSibling.textContent = "*Invalid password"
+//     }
+//   }
+// });
+
+// 52
+// let imgAll = document.querySelectorAll("img");
+// const observer = new IntersectionObserver((entries) => {
+//   //entries mean report of img in a arr/list format
+//   console.log(entries);
+//   entries.forEach((element) => {
+//     if (element.isIntersecting) {
+//       //viewport pr visible h ya nhi
+//       element.target.src = element.target.dataset.src;
+//       observer.unobserve(element.target); //Image ek baar visible hokar src set ho gayi, toh observer usko watch karna band kar deta hai.
+//     }
+//   });
+// });
+// imgAll.forEach((img) => {
+//   observer.observe(img);
+// });
+
+// 53
+// let btn = document.querySelector("button");
+// btn.addEventListener("click", (e) => {
+//   let p = e.target.parentElement;
+//   let inp = document.createElement("input");
+//   inp.type = "text";
+//   p.append(inp);
+//   e.target.remove();
+//   createReply(p, inp);
+// });
+// function createReply(p, inp) {
+//   let commentBox = document.createElement("div");
+//   commentBox.classList.add("comment");
+//   let text = document.createElement("p");
+//   let replyBtn = document.createElement("button");
+
+//   replyBtn.textContent = "reply";
+
+//   inp.addEventListener("keydown", (e) => {
+//     if (e.key === "Enter") {
+//       text.textContent = inp.value;
+//       inp.remove();
+//     }
+//   });
+
+//   commentBox.append(text, replyBtn);
+//   p.append(commentBox);
+//   replyBtn.addEventListener("click", (e) => {
+//     let p = e.target.parentElement;
+//     let inp = document.createElement("input");
+//     inp.type = "text";
+//     p.append(inp);
+//     e.target.remove();
+//     createReply(p, inp);
+//   });
+// }
+
+// 54
+// window.addEventListener("load", () => {
+//   let c = Number(localStorage.getItem("count"));
+//   let s = Number(sessionStorage.getItem("count"));
+//   c++;
+//   s++;
+//   localStorage.setItem("count", c);
+//   sessionStorage.setItem("count", s);
+//   let local = document.createElement("h1");
+//   let session = document.createElement("h1");
+//   local.textContent="local count :- "+c;
+//   session.textContent="session count :- "+s;
+//   document.querySelector('body').append(local,session);
+// });
+// document.querySelector("button").addEventListener("click", () => {
+//   localStorage.clear();
+//   sessionStorage.clear();
+//    document.querySelectorAll('h1')[0].textContent=`local count :- 0`;
+//    document.querySelectorAll('h1')[1].textContent=`session count :- 0`;
+// });
