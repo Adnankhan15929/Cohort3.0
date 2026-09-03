@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'helvetica neue';
+}
+html,
+body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game{
+    height: 90vh;
+    width:90vw;
+    background-color: skyblue;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.birdImg{
+    position: absolute;
+    height: 80px;
+    object-fit: cover;
+}
+
+
+.pipe{
+    background-color: green;
+    position: absolute;
+    width: 40px;
+}
